@@ -2,6 +2,7 @@ package com.danielsanta.diet.service
 
 import com.danielsanta.diet.model.entities.Drink
 import com.danielsanta.diet.model.entities.Food
+import com.danielsanta.diet.model.entities.Type
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 
@@ -19,7 +20,7 @@ class DietService {
         return response?.toList() ?: emptyList()
     }
 
-    fun getDiet(type: String): List<String> {
+    fun getDiet(type: Type): List<String> {
         val drinks = getDrinks().filter { it.type == type }.map { it.name }
         val foods = getFoods().filter { it.type == type }.map { it.name }
         return drinks + foods

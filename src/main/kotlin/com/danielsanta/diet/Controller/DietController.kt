@@ -1,5 +1,6 @@
 package com.danielsanta.diet.Controller
 
+import com.danielsanta.diet.model.entities.Type
 import com.danielsanta.diet.service.DietService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -18,21 +19,21 @@ class DietController(private val dietService: DietService) {
 
     @GetMapping("/cheap")
     fun getCheapDiet(): List<String> {
-        return dietService.getDiet("CHEAP")
+        return dietService.getDiet(Type.CHEAP)
     }
 
     @GetMapping("/healthy")
     fun getHealthyDiet(): List<String> {
-        return dietService.getDiet("HEALTHY")
+        return dietService.getDiet(Type.HEALTHY)
     }
 
     @GetMapping("/tasty")
     fun getTastyDiet(): List<String> {
-        return dietService.getDiet("TASTY")
+        return dietService.getDiet(Type.TASTY)
     }
 
     @GetMapping("/expensive")
     fun getExpensiveDiet(): List<String> {
-        return dietService.getDiet("EXPENSIVE")
+        return dietService.getDiet(Type.EXPENSIVE)
     }
 }
