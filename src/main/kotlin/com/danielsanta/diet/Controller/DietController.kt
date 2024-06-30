@@ -4,14 +4,11 @@ import com.danielsanta.diet.model.entities.Drink
 import com.danielsanta.diet.model.entities.Food
 import com.danielsanta.diet.model.entities.Type
 import com.danielsanta.diet.service.DietService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
-import java.lang.StringBuilder
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/diet")
+@CrossOrigin(origins = arrayOf("http://localhost:3000"))
 class DietController(private val dietService: DietService) {
     @GetMapping
     fun getDiet(): List<String> {
